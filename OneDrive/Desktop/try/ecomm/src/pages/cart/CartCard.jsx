@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const CartCard = ({ id, name, category, price, image, quantity, onRemove, updateQuantity }) => {
-  const [count, setCount] = useState(quantity);
+  const [count, setCount] = useState(quantity|| 1);
 
   const handleIncreaseQuantity = () => {
     setCount(prevCount => {
@@ -43,7 +43,7 @@ const CartCard = ({ id, name, category, price, image, quantity, onRemove, update
           >
             -
           </button>
-          <span className="mx-2">{count}</span>
+          <span className="mx-2 text-black">{count}</span>
           <button
             className="bg-gray-200 text-gray-700 px-2 py-1 rounded"
             onClick={handleIncreaseQuantity}

@@ -13,9 +13,7 @@ const Cart = () => {
 
   return (
     <div className='min-h-screen'>
-      <center>
-        <h2 className='text-white pt-6 text-4xl'>Shopping Cart</h2>
-      </center>
+      
       <div className=' flex justify-center '>
         <div className="w-2/5 m-10 flex flex-col">
           {cart.map((item, index) => (

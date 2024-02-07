@@ -47,7 +47,7 @@ export default function Products() {
 
     
   return (
-    <div className=''>
+    <div className='mini-navbar'>
       <center>
         <ul className=' m-10 flex flex-wrap justify-evenly gap-2 pt-6 '>
       <li onClick={() => handleCategoryClick("Clothes")}>
