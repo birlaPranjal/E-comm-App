@@ -1,21 +1,21 @@
 // Billing.js
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Billing = ({ cart }) => {
-  
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
-  const subtotal = cart.reduce((total, item) => total + item.quantity * item.price, 0);
+  const totalQuantity = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+  const subtotal = cart.reduce((total, item) => total + (item.quantity || 1) * (item.price || 0), 0);
 
   const renderBillingItems = () => {
     return cart.map((item, index) => (
       <div key={index} className="mb-2 text-black">
-        {(item.quantity)? item.quantity : item.quantity=1} * ${item.price} = ${item.quantity * item.price}
+        {(item.quantity || 1)} * ${item.price || 0} = ${(item.quantity || 1) * (item.price || 0)}
       </div>
     ));
   };
+
   return (
     <div className='w-1/4 mt-14 h-auto bg-white p-4 rounded-xl'>
-      <h3 className=' font-bold mb-4 text-amber-800 text-center text-5xl'>Subtotal</h3>
+      <h3 className='font-bold mb-4 text-amber-800 text-center text-5xl'>Subtotal</h3>
       <p className='text-gray-700'>Number of items: {totalQuantity}</p>
       {renderBillingItems()}
       <p className='text-gray-700'>Subtotal: ${subtotal}</p>

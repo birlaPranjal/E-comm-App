@@ -24,8 +24,8 @@ export default function Products() {
         async function getProducts(){
             let apiData= await fetch("https://api.escuelajs.co/api/v1/products");
             apiData=await apiData.json();
+            setData(apiData);
             
-            Data=setData(apiData);
         }
         getProducts();
     },[]);
